@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script> -->
+  <title>React</title>
+</head>
+
+<body>
+  <h1>React</h1>
+  <!-- Chapter2-1 -->
+  <!-- <div id="root" onClick="doCount();">wait...</div> -->
+  <!-- <script src="./script.js"></script> -->
+
+  <div id="root">wait...</div>
+  <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+  <script type="text/babel">
+    let dom = document.querySelector('#root');
+
+  /* Chapter2-2 */
+    // let title = "New Title!!";
+    // let messages = "Chacthing new messages";
+    // let link = "http://google.com";
+    // let message = "Writing here some messages!"
+    // 
+    // const msg_s = {
+    //   fontSize:"20pt",
+    //   color:"red",
+    //   border:"1px solid blue"
+    // }
+    // 
+    // let printMsg = function(msg,size,color){
+    //   const style = {
+    //     fontSize:size + "pt",
+    //     fontWeight:'700',
+    //     color: color,
+    //     border:"1px solid " + color
+    //   };
+    //   return <p style = {style}>{msg}</p>;
+    // }
+    // 
+    // let el =(
+    //   <div>
+    //     <h2>{title}</h2>
+    //     <p style={msg_s}>{messages}</p>
+    //     {printMsg('First message','30','#ddd')}
+    //     {printMsg('Second message','20','#aaa')}
+    //     {printMsg('Theird message','14','#333')}
+    //     <p><a href ={link}>This is Google</a></p>
+    //   </div>
+    // );
+  
+  /* Chapter2-3.1 */
+    // const msg_true = {
+    //   fontSize:"20pt",
+    //   fontWeight:"bold",
+    //   color:"red",
+    //   border:"2px solid green"
+    // }
+    // const msg_false = {
+    //   fontSize:"16pt",
+    //   fontWeight:"plain",
+    //   color:"white",
+    //   backgeoundColor:"blue"
+    // }
+    // 
+    // let flag = true;
+    // let message_true = "Display the message";
+    // let message_false = "Undisplay the  message";
+    // 
+    // let el =(
+    //     <div>
+    //     {flag ? <p style= {msg_true}>{message_true}</p>:<p style= {msg_false}>{message_false}</p>}
+    //     </div>
+    //   );
+  
+    /* Chapter2-3.2 */
+    // const list = {
+    //   fontSize: "18pt",
+    //   padding: "5px 50px",
+    // }
+    
+    // let data = [
+    //   <li>One</li>,
+    //   <li>Two</li>,
+    //   <li>Three</li>    //データの中身は複数の場合 , をつけ忘れないこと
+    // ];
+    // let el = (
+    //   <ul style={list}>
+    //   {data}
+    //   </ul>
+    // );
+
+    /* Chapter2-3.3 */
+    // const table = {
+    //   fontSize: "16pt",
+    //   padding: "15px 50px",
+    // }
+    // const th = {
+    //   color: 'white',
+    //   backgeoundColor: '#006',
+    //   padding: '5px 15px',
+    // }
+    // const td = {
+    //   color:'black',
+    //   padding: '5px 15px',
+    //   border: '1px solid gray',
+    // }
+
+    // let data = [
+    // {name:'Taro', mail:'taro@yamada', age:45},
+    // {name:'Hanako', mail:'hanako@flower', age:37},
+    // {name:'Sachiko',mail:'sachiko@happy', age:29}
+    // ];
+
+    // let el =(
+    //   <div>
+    //     <table style={table}>
+    //     <tr>
+    //       <th style={th}>name</th>
+    //       <th style={th}>mail</th>
+    //       <th style={th}>age</th>
+    //     </tr>
+    //     {data.map((value) => (
+    //     <tr>
+    //       <td style={td}>{value.name}</td>
+    //       <td style={td}>{value.mail}</td>
+    //       <td style={td}>{value.age}</td>
+    //     </tr>
+    //     ))}
+    //     </table>
+    //   </div>
+    // );
+
+    /* Chapter2-3.4 */
+    // const dfn ={
+    //   fontSize: "20pt",
+    //   padding: "10px",
+    // }
+    // const dt ={
+    //   fontSize: "16pt",
+    //   padding: "10px",
+    //   color:'white',
+    //   backgeoundColor: '#006',
+    // }
+    // const dd ={
+    //   color:'black',
+    //   padding:'10px',
+    // }
+    // const data ={
+    //   url:'http://google.com',
+    //   title: 'Google',
+    //   caption: '※Googleの検索サイトです'
+    // };
+
+    // let el = (
+    //   <div>
+    //     {(() => 
+    //     <dl>
+    //       <dt style={dt}><dfn style={dfn}>
+    //         {data.title}
+    //       </dfn></dt>
+    //       <dd style={dd}>
+    //         {data.caption}
+    //       </dd>
+    //       <dd style={dd}>
+    //         <a href ={data.url}>※{data.title}に移動</a>
+    //       </dd>
+    //     </dl>  
+    //       )()}
+    //   </div>
+    // );
+
+    /* Chapter2-4 */
+    
+      
+    ReactDOM.render(el,dom);
+  </script>
+</body>
+
+</html>
