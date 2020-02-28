@@ -53,6 +53,8 @@
     //     <p><a href ={link}>This is Google</a></p>
     //   </div>
     // );
+  /*********************************************************************/
+
   
   /* Chapter2-3.1 */
     // const msg_true = {
@@ -77,8 +79,10 @@
     //     {flag ? <p style= {msg_true}>{message_true}</p>:<p style= {msg_false}>{message_false}</p>}
     //     </div>
     //   );
+  /*********************************************************************/
+
   
-    /* Chapter2-3.2 */
+  /**************** Chapter2-3.2 ***************************************/
     // const list = {
     //   fontSize: "18pt",
     //   padding: "5px 50px",
@@ -92,10 +96,11 @@
     // let el = (
     //   <ul style={list}>
     //   {data}
-    //   </ul>
-    // );
+    //   </ul>                                                          
+    // );                                                                
+  /*********************************************************************/
 
-    /* Chapter2-3.3 */
+  /**************** Chapter2-3.3 ***************************************/
     // const table = {
     //   fontSize: "16pt",
     //   padding: "15px 50px",
@@ -135,8 +140,9 @@
     //     </table>
     //   </div>
     // );
+  /*********************************************************************/
 
-    /* Chapter2-3.4 */
+  /**************** Chapter2-3.4 ***************************************/
     // const dfn ={
     //   fontSize: "20pt",
     //   padding: "10px",
@@ -156,7 +162,7 @@
     //   title: 'Google',
     //   caption: '※Googleの検索サイトです'
     // };
-
+    
     // let el = (
     //   <div>
     //     {(() => 
@@ -174,11 +180,93 @@
     //       )()}
     //   </div>
     // );
+  /**********************************************************************/
 
-    /* Chapter2-4 */
-    
-      
-    ReactDOM.render(el,dom);
+  /*********************** Chapter2-4.1 *********************************/
+    // const p ={
+    //   fontSize: "20pt",
+    //   padding: "10px",
+    // };
+
+    // var counter = 0;
+    // setInterval(() => {
+    //   counter++;
+    //   let el =(
+    //     <div>
+    //       <p style={p}>counter:{counter}</p>
+    //     </div>
+    //   );
+
+    //   ReactDOM.render(el,dom);
+    // },1000);
+      /* 画面に表示させる記述を外に出してcounterがインクリメントされるものだけをsetInterval内に記述する方法はできない */
+      /* counterがインクリメントされた値を表示させるための記述内にあるcounterに代入してから表示させるため外面状に表示される値が更新されなくなってしまう */
+
+  /**********************************************************************/
+
+  /*********************** Chapter2-4.2 *********************************/
+    // const p ={
+    //   fontSize:"20pt",
+    //   padding:"10px",
+    //   backgeoundColor:"blue",
+    //   color:"white",
+    //   cursor:"pointer"
+    // };
+
+    // var counter = 0;
+    // let doAction = (event) => {
+    //   counter ++;
+    //   let el =(
+    //     <div>
+    //       <p onClick = {doAction} style={p}>
+    //         counter:{counter}
+    //       </p>
+    //     </div>
+    //   );
+
+    //   ReactDOM.render(el,dom);
+    // };
+    // doAction();
+  /**********************************************************************/
+
+  /*********************** Chapter2-4.3 *********************************/
+    const p ={
+      fontSize: "20pt",
+      padding: "10ox"
+    };
+    const input ={
+      fontSize: "16pt",
+      padding: "5px 10px",
+    }
+
+    let message = 'Writing your name here!';
+    let in_val = '';
+
+    let doChange =(event) => {
+      in_val = event.target.value;
+      message = 'Hello, ' + in_val + '!!';
+    };
+
+    let doAction =(event) =>{
+      let el = (
+        <div>
+          <p style={p}>{message}</p>
+          <div>
+            <input type="text" id="input" style={input} onChange={doChange} />
+            <button onClick={doAction} style={input}>
+              Click
+            </button>
+          </div>
+        </div>
+      );
+      ReactDOM.render(el,dom);
+    };
+
+    doAction();
+  /**********************************************************************/
+
+  // Chapter2-1~3
+  //  ReactDOM.render(el,dom);
   </script>
 </body>
 
