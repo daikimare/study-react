@@ -2,37 +2,26 @@ import React,{Component} from 'react';
 import Rect from './Rect';
 import './App.css';
 
-/* Chapter3-3.6 */
-class App　extends Component{
+/* Chapter3-3.7 */
+class App extends Component{
   input = '';
 
-  msgStyle = {
-    fontSize: "24pt",
+  msgStyle ={
+    fontSize: "20pt",
     color: "#900",
     margin: "20px 0px",
     padding: "5px",
   }
-  inputStyle ={
-    fontSize: "12ptpx",
-    padding: "5px"
-  }
 
-  constructor(props) {
+  constructor (props){
     super(props);
-    this.state={
-      message: 'type your name: '
+    this.state ={
+      message:'type your name:'
     };
-    this.doChange = this.doChange.bind(this);
-    this.doSubmit = this.doSubmit.bind(this);
+    this.doCheck = this.doCheck.bind(this);
   }
-  doChange(event){
-    this.input = event.target.value;
-  }
-  doSubmit(event){
-    this.setState({
-      message: 'Hello, ' + this.input + '!!'
-    });
-    event.preventDefault();
+  doCheck(event){
+    alert(event.target.value + "は長すぎます(最大10文字)");
   }
 
   render(){
@@ -40,19 +29,88 @@ class App　extends Component{
       <div>
         <h1>React</h1>
         <h2>{this.state.message}</h2>
-        <form onSubmit = {this.doSubmit}>
-          <label>
-            <span style ={this.inputStyle}></span>message:
-            <input type = "text" style ={this.inputStyle} onChange ={this.doChange} />
-          </label>
-          <input type ="submit" style ={this.inputStyle} value ="Click" />
-        </form>
+        <Message maxlength ="10" onCheck ={this.doCheck} />
       </div>
     );
   }
 }
 
+class Message extends Component{
+  inputStyle ={
+    fontSize: "12pt",
+    padding: "5px"
+  }
+  constructor(props){
+    super(props);
+    this.doChange = this.doChange.bind(this);
+  }
+
+  doChange(e){
+    if(e.target.value.length > this.props.maxlength){
+      this.props.onCheck(e);
+      e.target.value = e.target.value.substr(0, this.props.maxlength);
+    }
+  }
+
+  render(){
+    return(
+      <input type ="text" style ={this.inputStyle} onChange ={this.doChange} />
+    );
+  }
+}
+
 export default App;
+/* Chapter3-3.6 */
+// class App　extends Component{
+//   input = '';
+
+//   msgStyle = {
+//     fontSize: "24pt",
+//     color: "#900",
+//     margin: "20px 0px",
+//     padding: "5px",
+//   }
+//   inputStyle ={
+//     fontSize: "12pt",
+//     padding: "5px"
+//   }
+
+//   constructor(props) {
+//     super(props);
+//     this.state={
+//       message: 'type your name: '
+//     };
+//     this.doChange = this.doChange.bind(this);
+//     this.doSubmit = this.doSubmit.bind(this);
+//   }
+//   doChange(event){
+//     this.input = event.target.value;
+//   }
+//   doSubmit(event){
+//     this.setState({
+//       message: 'Hello, ' + this.input + '!!'
+//     });
+//     event.preventDefault();
+//   }
+
+//   render(){
+//     return(
+//       <div>
+//         <h1>React</h1>
+//         <h2>{this.state.message}</h2>
+//         <form onSubmit = {this.doSubmit}>
+//           <label>
+//             <span style ={this.inputStyle}></span>message:
+//             <input type = "text" style ={this.inputStyle} onChange ={this.doChange} required pattern = "[A-Za-z _,.]+" />
+//           </label>
+//           <input type ="submit" style ={this.inputStyle} value ="Click" />
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 /* Chapter3-3.5 */
 // class App extends Component{
