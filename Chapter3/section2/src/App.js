@@ -2,15 +2,24 @@ import React,{Component} from 'react';
 import Rect from './Rect';
 import './App.css';
 
-/* Chapter3-3.8 */
-let data = {title: 'Title', message: 'this is sample message'};
+/* Chapter3-3.9 */
+let data = {title:'Title', message: 'this is sample message.'}
+
 const SampleContext = React.createContext(data);
 
 class App extends Component{
-  render(){
-    return(
+  newdata ={title: '新しいタイトル', message: 'これは新しいメッセージです。'};
+
+  render() {
+    return (
       <div>
         <h1>Context</h1>
+        <Title />
+        <Message />
+        <SampleContext.Provider value ={this.newdata} >
+          <Title />
+          <Message />
+        </SampleContext.Provider>
         <Title />
         <Message />
       </div>
@@ -18,7 +27,7 @@ class App extends Component{
   }
 }
 
-class Title extends Component{
+class Title extends Component {
   static contextType = SampleContext;
 
   render(){
@@ -30,9 +39,9 @@ class Title extends Component{
   }
 }
 
-class Message extends Component{
-  static contextType =SampleContext;
-
+class Message extends Component {
+  static contextType = SampleContext;
+  
   render(){
     return(
       <div>
@@ -43,6 +52,48 @@ class Message extends Component{
 }
 
 export default App;
+
+/* Chapter3-3.8 */
+// let data = {title: 'Title', message: 'this is sample message'};
+// const SampleContext = React.createContext(data);
+
+// class App extends Component{
+//   render(){
+//     return(
+//       <div>
+//         <h1>Context</h1>
+//         <Title />
+//         <Message />
+//       </div>
+//     );
+//   }
+// }
+
+// class Title extends Component{
+//   static contextType = SampleContext;
+
+//   render(){
+//     return(
+//       <div>
+//         <h2>{this.context.title}</h2>
+//       </div>
+//     );
+//   }
+// }
+
+// class Message extends Component{
+//   static contextType =SampleContext;
+
+//   render(){
+//     return(
+//       <div>
+//         <p>{this.context.message}</p>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 /* Chapter3-3.7 */
 // class App extends Component{
