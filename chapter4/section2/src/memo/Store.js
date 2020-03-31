@@ -13,8 +13,8 @@ export function memoReducer(state = initData, action){
     case 'ADD':
       return addReduce(state, action);
 
-    case 'DELEAT':
-      return delReduce(state, action);
+    case 'DELETE':
+      return deleteReduce(state, action);
     
     case 'FIND':
       return findReduce(state, action);
@@ -60,7 +60,7 @@ function findReduce(state, action){
 }
 
 // メモ削除のレデュース処理
-function delReduce(state, action){
+function deleteReduce(state, action){
   let newdata = state.data.slice();
   newdata.splice(action.index, 1);
   return{
