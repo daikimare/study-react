@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import style from '../static/Style';
+import Counter from '../components/Counter';
 
 const h1 = {
   fontSize: '72pt',
@@ -19,6 +20,7 @@ const p = {
 export default () =>(
   <Layout header ="Other" title ="Other page">
     <p>This is Other page</p>
+    <Counter />
     <hr />
     <div>
       <Link href ="/">
